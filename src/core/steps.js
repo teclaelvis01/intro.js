@@ -64,8 +64,8 @@ export async function nextStep() {
     }
     //intro without element
     if (
-      typeof currentItem.element === "undefined" ||
-      currentItem.element === null
+      typeof nextStep.element === "undefined" ||
+      nextStep.element === null
     ) {
       let floatingElementQuery = document.querySelector(
         ".introjsFloatingElement"
@@ -79,8 +79,8 @@ export async function nextStep() {
         document.body.appendChild(floatingElementQuery);
       }
 
-      currentItem.element = floatingElementQuery;
-      currentItem.position = "floating";
+      nextStep.element = floatingElementQuery;
+      nextStep.position = "floating";
     }
   }
 
