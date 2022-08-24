@@ -53,6 +53,9 @@ Optionally, pass one parameter to `introJs` function to limit the presentation s
 
 Please visit [Documentation](http://introjs.com/docs).
 
+## Options (new)
+Check [here](./options.md).
+
 ## Using with:
 
 Intro.js has many wrappers for different purposes. Please visit [Documentation](http://introjs.com/docs) for more info.

@@ -22,6 +22,7 @@ import {
   nextStep,
   previousStep,
 } from "./core/steps";
+import updateSteps from "./core/updateSteps";
 
 /**
  * IntroJs main class
@@ -180,6 +181,10 @@ introJs.fn = IntroJs.prototype = {
   },
   async start() {
     await introForElement.call(this, this._targetElement);
+    return this;
+  },
+  async updateSteps() {
+    await updateSteps.call(this, this._targetElement);
     return this;
   },
   async goToStep(step) {
