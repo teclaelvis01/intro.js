@@ -24,7 +24,7 @@ export default function fetchIntroSteps(targetElm) {
       currentItem.title = currentItem.title || "";
 
       //use querySelector function only when developer used CSS selector
-      if (typeof currentItem.element === "string") {
+      if (typeof currentItem.element === "string" && !this._options.onFiredElement) {
         //grab the element with given selector from the page
         currentItem.element = document.querySelector(currentItem.element);
       }

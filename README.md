@@ -55,6 +55,8 @@ Please visit [Documentation](http://introjs.com/docs).
 
 ## Options (new)
 Check [here](./options.md).
+## Methods (new)
+Check [here](./methods.md).
 
 ## Using with:
 

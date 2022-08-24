@@ -56,6 +56,34 @@ export async function nextStep() {
   const nextStep = this._introItems[this._currentStep];
   let continueStep = true;
 
+  if (this._options.onFiredElement) {
+    //use querySelector function only when developer used CSS selector
+    if (typeof nextStep.element === "string") {
+      //grab the element with given selector from the page
+      nextStep.element = document.querySelector(nextStep.element);
+    }
+    //intro without element
+    if (
+      typeof currentItem.element === "undefined" ||
+      currentItem.element === null
+    ) {
+      let floatingElementQuery = document.querySelector(
+        ".introjsFloatingElement"
+      );
+
+      if (floatingElementQuery === null) {
+        floatingElementQuery = createElement("div", {
+          className: "introjsFloatingElement",
+        });
+
+        document.body.appendChild(floatingElementQuery);
+      }
+
+      currentItem.element = floatingElementQuery;
+      currentItem.position = "floating";
+    }
+  }
+
   if (typeof this._introBeforeChangeCallback !== "undefined") {
     continueStep = await this._introBeforeChangeCallback.call(
       this,

@@ -1,11 +1,11 @@
 {
-  "name": "intro.js",
-  "version": "6.0.0",
+  "name": "introjs.v2",
+  "version": "6.0.2",
   "description": "User Onboarding and Product Walkthrough Library",
   "keywords": [
     "onboarding",
     "tour",
-    "introjs",
+    "introjs-v2",
     "intro",
     "guide",
     "walkthrough",
@@ -15,7 +15,7 @@
   "homepage": "https://introjs.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/usablica/intro.js"
+    "url": "https://github.com/teclaelvis01/intro.js"
   },
   "main": "intro.js",
   "module": "intro.module.js",
@@ -29,7 +29,9 @@
     "test:cypress": "npm run build && cp -r ./dist ./tests/cypress/setup && cd ./tests && cypress run --env type=actual",
     "release": "./bin/release.sh || true",
     "prebuild": "rimraf ./dist",
+    "copy": "cp package.json dist/ && cp README.md dist/",
     "build": "rollup -c",
+    "build:prod": "rollup -c && npm run copy",
     "build:watch": "rollup -c -w"
   },
   "devDependencies": {

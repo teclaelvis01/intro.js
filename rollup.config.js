@@ -16,11 +16,13 @@ const inputPath = './src'
 const outputPath = './dist';
 
 const banner = `/*!
- * Intro.js v${version}
+ * Intro.js.v2 v${version}
  * https://introjs.com
  *
  * Copyright (C) 2012-2022 Afshin Mehrabani (@afshinmeh).
  * https://introjs.com
+ * 
+ * Fork update by Elvis Reyes @teclaelvis01
  *
  * Date: ${new Date().toUTCString()}
  */

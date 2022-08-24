@@ -114,6 +114,8 @@ function IntroJs(obj) {
     buttonClass: "introjs-button",
     /* additional classes to put on progress bar */
     progressBarAdditionalClass: false,
+    /* additional classes to put on progress bar */
+    onFiredElement: false,
   };
 }
 
