@@ -16,7 +16,16 @@ export default function setHelperLayerPosition(helperLayer) {
     //prevent error when `this._currentStep` in undefined
     if (!this._introItems[this._currentStep]) return;
 
+
+
     const currentElement = this._introItems[this._currentStep];
+    // updating the element
+    if(currentElement.elementId){
+      let elemFresh = document.querySelector(currentElement.elementId);
+      if(elemFresh){
+        currentElement.element = elemFresh;
+      }
+    }
     const elementPosition = getOffset(
       currentElement.element,
       this._targetElement

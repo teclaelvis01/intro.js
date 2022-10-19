@@ -37,7 +37,6 @@ export async function goToStepNumber(step) {
  */
 export async function nextStep() {
   this._direction = "forward";
-
   if (typeof this._currentStepNumber !== "undefined") {
     forEach(this._introItems, ({ step }, i) => {
       if (step === this._currentStepNumber) {
@@ -46,20 +45,25 @@ export async function nextStep() {
       }
     });
   }
-
+  
   if (typeof this._currentStep === "undefined") {
     this._currentStep = 0;
   } else {
     ++this._currentStep;
   }
 
+  
   const nextStep = this._introItems[this._currentStep];
   let continueStep = true;
+  if (this._introNextClickCallback) {
+    await this._introNextClickCallback.call(this, nextStep);    
+  }
 
   if (this._options.onFiredElement) {
     //use querySelector function only when developer used CSS selector
     if (typeof nextStep.element === "string") {
       //grab the element with given selector from the page
+      nextStep.elementId = nextStep.element;
       nextStep.element = document.querySelector(nextStep.element);
     }
     //intro without element
@@ -127,6 +131,10 @@ export async function previousStep() {
 
   const nextStep = this._introItems[this._currentStep];
   let continueStep = true;
+
+  if (this._introPreviousClickCallback) {
+    await this._introPreviousClickCallback.call(this, nextStep);    
+  }
 
   if (typeof this._introBeforeChangeCallback !== "undefined") {
     continueStep = await this._introBeforeChangeCallback.call(

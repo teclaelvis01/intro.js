@@ -6,6 +6,9 @@
  * @return Element
  */
 export default function getScrollParent(element) {
+  if(!window){
+    return;
+  }
   let style = window.getComputedStyle(element);
   const excludeStaticParent = style.position === "absolute";
   const overflowRegex = /(auto|scroll)/;

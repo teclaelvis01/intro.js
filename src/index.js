@@ -249,6 +249,26 @@ introJs.fn = IntroJs.prototype = {
     }
     return this;
   },
+  onNextClick(providedCallback) {
+    if (typeof providedCallback === "function") {
+      this._introNextClickCallback = providedCallback;
+    } else {
+      throw new Error(
+        "Provided callback for onNextClick was not a function"
+      );
+    }
+    return this;
+  },
+  onPreviousClick(providedCallback) {
+    if (typeof providedCallback === "function") {
+      this._introPreviousClickCallback = providedCallback;
+    } else {
+      throw new Error(
+        "Provided callback for onPreviousClick was not a function"
+      );
+    }
+    return this;
+  },
   onchange(providedCallback) {
     if (typeof providedCallback === "function") {
       this._introChangeCallback = providedCallback;

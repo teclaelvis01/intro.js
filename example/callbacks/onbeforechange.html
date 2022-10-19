@@ -77,6 +77,9 @@
             return false;
           }
         });
+        intro.onNextClick(function () {
+          console.log('[+][next]',this);
+        });
         intro.start();
       }
     </script>
